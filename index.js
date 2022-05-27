@@ -17,7 +17,11 @@ const run = async () =>{
         console.log("Connected to MongoDB");
         const db = client.db("toolsDB");
         const toolsCollection = db.collection("toolsCollection");
-
+        const ordersCollection = db.collection("ordersCollection");
+        const usersCollection = db.collection("usersCollection");
+        const reviewsCollection = db.collection("reviewsCollection");
+        const blogsCollection = db.collection("blogsCollection");
+        const adminsCollection = db.collection("adminsCollection");
             //API to get all tools
     app.get("/tools", async (req, res) => {
         const tools = await toolsCollection.find({}).toArray();
