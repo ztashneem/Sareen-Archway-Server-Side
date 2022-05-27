@@ -267,19 +267,19 @@ const run = async () => {
       res.send(reviews);
     });
 
-    //API to post a review
-    // app.post("/review", verifyJWT, async (req, res) => {
-    //   const decodedEmail = req.decoded.email;
-    //   const email = req.headers.email;
-    //   const review = req.body;
-    //   const result = await reviewsCollection.insertOne(review);
+    // API to post a review
+    app.post("/review", verifyJWT, async (req, res) => {
+      const decodedEmail = req.decoded.email;
+      const email = req.headers.email;
+      const review = req.body;
+      const result = await reviewsCollection.insertOne(review);
 
-    //   res.send(result);
-    //   // if (email === decodedEmail) {
-    //   // } else {
-    //   //   res.send("Unauthorized access");
-    //   // }
-    // });
+      res.send(result);
+      // if (email === decodedEmail) {
+      // } else {
+      //   res.send("Unauthorized access");
+      // }
+    });
     // add review
     app.post("/review", async (req, res) => {
       const result = await reviewsCollection.insertOne(req.body);
